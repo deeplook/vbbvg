@@ -1,5 +1,6 @@
+six
 pandas
 BeautifulSoup4
-htmlib5
+htm5lib
 tabulate
 termcolor

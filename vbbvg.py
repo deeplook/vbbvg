@@ -7,11 +7,13 @@ Get next real-time departure times for VBB/BVG public transport lines.
 Please read the file README.rst for more information.
 """
 
+from __future__ import division, print_function
+
 import re
 import sys
 import datetime
 import argparse
-import urllib2
+import six.moves.urllib as urllib
 import subprocess
 import os
 from os.path import dirname, join
@@ -136,11 +138,11 @@ def wait_time(departure, now=None):
     if (dt - now).days < 0:
         delta = 0
     if delta < 3600:
-        return '%02d:%02d' % (delta / 60, delta % 60)
+        return '%02d:%02d' % (delta // 60, delta % 60)
     else:
-        delta_hh = delta / 3600
+        delta_hh = delta // 3600
         delta_rest = delta - delta_hh * 3600
-        return '%02d:%02d:%02d' % (delta_hh, delta_rest / 60, delta_rest % 60)
+        return '%02d:%02d:%02d' % (delta_hh, delta_rest // 60, delta_rest % 60)
 
 
 def get_next_departures(stop, filter_line=None, num_line_groups=1, verbose=False):
@@ -158,7 +160,7 @@ def get_next_departures(stop, filter_line=None, num_line_groups=1, verbose=False
         print('- Fetching table for URL "%s".' % url)
     try:
         tables = pd.read_html(url.encode('utf-8'))
-    except urllib2.URLError:
+    except urllib.error.URLError:
         msg = 'Not connected to the internet?'
         termcolor.cprint(msg, 'red', attrs=['bold'])
         sys.exit(1)
@@ -253,7 +255,7 @@ def show_table(args):
 def test_stop(stop_name):
     """Run a series of tests on the command-line for the given stop name."""
 
-    # Make sure we don't have more than one consequtive blank in the stop name.
+    # Make sure we don't have more than one consecutive blank in the stop name.
     stop_name = re.sub(' +', ' ', stop_name)
 
     # Use '  ' in strings below to allow single blanks in stop names.

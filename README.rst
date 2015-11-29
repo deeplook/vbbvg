@@ -3,8 +3,19 @@ README
 
 This little tool will fetch and display real-time departure times for VBB/BVG 
 public transport lines for a single stop in Berlin and Brandenburg, Germany.
-Here, VBB is the "Verkehrsverbund Berlin-Brandenburg" and BVG is the "Berliner
+Here, VBB_ is the "Verkehrsverbund Berlin-Brandenburg" and BVG_ is the "Berliner
 Verkehrsbetriebe".
+
+.. _VBB: http://www.vbb.de/en/index.html
+.. _BVG: http://www.bvg.de/en/
+
+This tool was partly developed as an instructive example of using Pandas_ 
+(although a toy one) and producing some output to be fed into a web-based 
+dashboard like those one can create with Dashing_ (to be done). 
+
+.. _Pandas: http://pandas.pydata.org
+.. _Dashing: http://dashing.io
+
 
 
 Sample output
@@ -74,21 +85,22 @@ Implementation
 --------------
 
 Since VBB/BVG have no API for real time data access this data is fetched 
-(using ``pandas``, yes!) from a web application on http://mobil.bvg.de.
+(scraped using ``pandas``, yes!) from a web application on http://mobil.bvg.de
+or more presisely: http://mobil.bvg.de/Fahrinfo/bin/stboard.bin/eox?&boardType=depRT.
 There, as a real person you can enter parts of the destination name and get
 a list of matching destinations to chose from, before you get to see the result 
 table.
 
 To avoid multi-level scraping, speed things up (and add some more thrills) 
-a small part of an existing 
-`"Open Data" VBB database <http://daten.berlin.de/kategorie/verkehr>`_, 
+a small part of an existing "Open Data" 
+`VBB database <http://daten.berlin.de/kategorie/verkehr>`_, 
 published under the 
 `CC-BY 3.0 license <http://creativecommons.org/licenses/by/3.0/de/>`_ 
 is used to access the stop names and IDs of the VBB/BVG public transport 
 network (a simple CSV file named here ``vbbvg_stops.csv``).
 
 The resulting tables are output as "real" tables in various formats on
-the command-line.
+the command-line, see usage examples below.
 
 
 Usage
@@ -128,7 +140,7 @@ Dashboards
 ..........
 
 When using this tool inside some kind of web-based dashboard like those 
-created by http://dashing.io (which was the originally intended use-case) 
+created by Dashing_ (which was the originally intended use-case) 
 one should use a stop's ID to be sure to provide a unique stop on the 
 VBB/BVG public transport network. You can find out the IDs by running 
 test queries with the ``--header`` option.
@@ -137,10 +149,10 @@ test queries with the ``--header`` option.
 Todo
 ----
 
-Any help is welcome with any of the following items:
+Due to time limitations any help is welcome with any of the following items:
 
 - turn this into a real pip-installable package
-- make code polyglot, running not only on Python 2.7 but also 3.4/3.5
+- make the code *polyglot*, running not only on Python 2.7 but also 3.4/3.5
 - test option to filter specific line types like S-Bahn ('S.*') or single 
   lines ('U7')
 - use in some real dashboard like those of dhasing.io (the original purpose!)
