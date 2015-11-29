@@ -1,0 +1,5 @@
+pandas
+BeautifulSoup4
+htmlib5
+tabulate
+termcolor
