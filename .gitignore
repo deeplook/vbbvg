@@ -1,1 +1,2 @@
 .cache/
+*.egg-info/

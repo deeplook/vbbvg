@@ -52,17 +52,20 @@ about by typing ``python vbbvg.py -h``.
 Installation and Test
 ---------------------
 
-There is no support yet to make this tool installable by ``pip`` or 
-``distutils`` (like a ``setup.py`` script).
-Nevertheless, there is a list of dependencies in the file ``requirements.txt``
+You can clone the repository and install it via pip. After
+installing, you will have access system wide (or in your virtualenv)
+to ``vbbvg`` programmatically or via the CLI.
+
+::
+
+    pip install -e .
+
+There is a list of dependencies in the file ``requirements.txt``
 (for more about them please read the next section) which you can install
 with the command ``pip install -r requirements.txt``. 
-Then, in order to use this tool and run it from anywhere, just copy the
-files ``vbbvg.py`` and ``vbbvg_stopy.csv`` to the same directory
-in your search path, and make it executable.
 
 To run the little "test suite", download and unpack this repository or
-clone it, and run the command ``py.test test.py`` in the unpacked archive. 
+clone it, and run the command ``python setup.py test`` in the unpacked archive. 
 Of course this needs the ``pytest`` package to be available (not listed in 
 the requirements, but easy to install with ``pip install pytest``).
 
@@ -118,7 +121,7 @@ stop *Möckernbrücke*:
 
 .. code-block:: console
 
-    $ python vbbvg.py --test --stop Möckernbrücke
+    $ vbbvg --test --stop Möckernbrücke
 
 
 Programmatic
@@ -155,7 +158,6 @@ Todo
 - mention http://fahrinfo.vbb.de/bin/stboard.exe/en? (provides some more 
   filtering features)
 - add more examples in the Usage section above
-- turn this into a real pip-installable package
 - make the code *polyglot*, running not only on Python 2.7 but also 3.4/3.5
 - test option to filter specific line types like S-Bahn ('S.*') or single 
   lines ('U7')

@@ -1,0 +1,5 @@
+include LICENSE.txt
+include README.rst
+include CONTRIBUTORS.rst
+
+exclude requirements.txt
