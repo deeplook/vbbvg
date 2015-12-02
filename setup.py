@@ -49,6 +49,6 @@ setuptools.setup(
     ],
     cmdclass={'test': PyTest},
     package_data={
-        'vbvvg': ['vbbvg_stops.csv'],
+        'vbbvg': ['vbbvg_stops.csv'],
     },
 )
