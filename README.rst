@@ -163,5 +163,7 @@ Todo
   lines ('U7')
 - use in some real dashboard like those of dhasing.io (the original purpose!)
 - mention that case is ignored in the whole tool for all stop names
+- store the last displayed stop (in ~/.vvbvg or so) and reuse when called
+  without any args/options
 
 Due to time limitations any help is welcome with any of the items above.
