@@ -11,7 +11,7 @@ import datetime
 
 import pytest
 
-import vbbvg 
+from vbbvg import vbbvg
 
 
 def test0():
