@@ -131,16 +131,33 @@ The main function to use programmatically is ``vbbvg.get_next_departures()``,
 which returns a Pandas_ ``DataFrame`` object, which you can convert to almost
 anything you like. See the following examples:
 
+Get departures of S7 and S75 from Berlin main station:
+
 .. code-block:: python
 
-    import vbbvg
-    # get departures of S7 and S75 from Berlin main station
-    df = vbbvg.get_next_departures('9003201', filter_line='S7')
-    print(list(df.to_records()))
-    ...
-    print(df.to_csv())
-    ...
+    In [1]: import vbbvg
+    
+    In [2]: df = vbbvg.get_next_departures('9003201', filter_line='S7')
+    
+    In [3]: df.columns
+    Out[3]: Index([u'Wait', u'Departure', u'Line', u'Destination'], dtype='object')
 
+    In [4]: list(df.to_records())
+    Out[4]: 
+    [(1, '00:00', u'10:01', u'S75 (Gl. 16)', u'S Westkreuz (Berlin)'),
+     (4, '01:10', u'10:03', u'S75 (Gl. 15)', u'S Wartenberg (Berlin)'),
+     (14, '04:10', u'10:06', u'S7 (Gl. 16)', u'S Potsdam Hauptbahnhof'),
+     (24, '07:10', u'10:09', u'S7 (Gl. 15)', u'S Ahrensfelde Bhf (Berlin)'),
+     (62, '21:10', u'10:23', u'S75 (Gl. 15)', u'S Ostbahnhof (Berlin)')]
+    
+    In [5]: print(df.to_csv())
+    ,Wait,Departure,Line,Destination
+    1,00:00,10:01,S75 (Gl. 16),S Westkreuz (Berlin)
+    4,01:10,10:03,S75 (Gl. 15),S Wartenberg (Berlin)
+    14,04:10,10:06,S7 (Gl. 16),S Potsdam Hauptbahnhof
+    24,07:10,10:09,S7 (Gl. 15),S Ahrensfelde Bhf (Berlin)
+    62,21:10,10:23,S75 (Gl. 15),S Ostbahnhof (Berlin)
+    
 
 Dashboards
 ..........
@@ -165,5 +182,8 @@ Todo
 - mention that case is ignored in the whole tool for all stop names
 - store the last displayed stop (in ~/.vvbvg or so) and reuse when called
   without any args/options
+- remove index numbers (leftmost column) from result tables when used
+  programmatically
+
 
 Due to time limitations any help is welcome with any of the items above.
