@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
-CLI Entry point for the program
+CLI Entry point for the program.
 """
 
+import argparse
+
+import termcolor
 
 import vbbvg
-import argparse
-import termcolor
 
 
 def main():
