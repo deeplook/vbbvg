@@ -83,6 +83,23 @@ Output on the command-line is created by using the ``termcolor`` and
 ``tabulate`` packages, saving a great amount of code to write otherwise
 oneself.
 
+System Requirements (Linux)
+...........................
+
+As a Linux user pointed out: if you are on Linux you might have to install
+the following packages manually:
+
+.. code-block:: console
+
+    sudo apt-get install libxml2-dev libxslt1-dev lib32z1-dev
+
+And if you run into an ``/usr/bin/ld: cannot find -lz`` error consider 
+installing this one before running ``pip``:
+
+.. code-block:: console
+
+    sudo apt-get install lib32z1-dev
+
 
 Implementation
 --------------
