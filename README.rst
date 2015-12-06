@@ -91,10 +91,10 @@ the following packages manually:
 
 .. code-block:: console
 
-    sudo apt-get install libxml2-dev libxslt1-dev lib32z1-dev
+    sudo apt-get install libxml2-dev libxslt1-dev
 
 And if you run into an ``/usr/bin/ld: cannot find -lz`` error consider 
-installing this one before running ``pip``:
+installing this one before running ``pip``, too:
 
 .. code-block:: console
 
@@ -201,6 +201,5 @@ Todo
   without any args/options
 - remove index numbers (leftmost column) from result tables when used
   programmatically
-
 
 Due to time limitations any help is welcome with any of the items above.
