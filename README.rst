@@ -26,7 +26,7 @@ on the command-line:
 
 .. code-block:: console
 
-    $ python vbbvg.py --stop Möckernbrücke --header
+    $ python vbbvg --stop Möckernbrücke --header
     Now: 14:06:04
     Stop-Name: U Möckernbrücke (Berlin)
     Stop-ID: 9017104
@@ -46,7 +46,7 @@ leaving the office" as a typical use-case.
 This tool filters these combinations, calculates the waiting times and inserts
 them as the first column in the output.
 There are quite a few other command-line options which you can find out more
-about by typing ``python vbbvg.py -h``.
+about by typing ``python vbbvg -h``.
 
 
 Installation and Test
