@@ -26,7 +26,7 @@ on the command-line:
 
 .. code-block:: console
 
-    $ python vbbvg --stop Möckernbrücke --header
+    $ vbbvg --stop Möckernbrücke --header
     Now: 14:06:04
     Stop-Name: U Möckernbrücke (Berlin)
     Stop-ID: 9017104
