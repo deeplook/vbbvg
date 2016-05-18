@@ -78,7 +78,7 @@ def get_name_id_interactive(stop, df):
 
     # pick only entries containing the given stop substring in column stop_name
     df1 = df[df.stop_name.apply(lambda cell: stop.lower() in cell.lower())]
-    df1 = df1.sort(columns=['stop_name'])
+    df1 = df1.sort_values(by=['stop_name'])
     df1_len = len(df1)
     if df1_len == 1:
         result = {
